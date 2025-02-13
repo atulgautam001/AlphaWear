@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Buy stylish and trendy men's fashion online. Best quality T-Shirts, Jackets, Shirts, Jeans and more at affordable prices.">
+    <meta name="description" content="Buy stylish and trendy men's fashion online. Best quality T-Shirts, Jackets, Shirts, and more at affordable prices.">
     <title>AlphaWear - Men's Fashion</title>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #1a1a1a; color: white; }
+        body { background: #2b2b2b; color: white; }
         .container { width: 90%; margin: auto; padding: 20px; }
-        header { background: #111; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; color: #f39c12; }
-        nav { text-align: center; padding: 10px 0; background: #222; }
+        
+        /* Header and Navigation */
+        header { background: #1f1f1f; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; color: #f39c12; }
+        nav { text-align: center; padding: 10px 0; background: #1f1f1f; }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 18px; }
         nav a:hover { color: #f39c12; }
-
-        .category { margin-top: 30px; }
-        .category h2 { border-bottom: 2px solid #f39c12; padding-bottom: 5px; }
-        .products { display: flex; gap: 15px; justify-content: center; margin-top: 15px; flex-wrap: wrap; }
-        .product { width: 200px; text-align: center; background: #222; padding: 15px; border-radius: 8px; }
+        
+        /* Product Section */
+        .product-section { margin-top: 20px; text-align: center; }
+        .product-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .product { width: 250px; background: #333; padding: 15px; border-radius: 8px; text-align: center; transition: 0.3s; }
+        .product:hover { background: #444; }
         .product img { width: 100%; border-radius: 5px; }
         .product h3 { margin: 10px 0; color: #f39c12; }
-        .product p { font-size: 14px; color: #4CAF50; }
-        .product button { background: #f39c12; color: black; font-weight: bold; padding: 8px; width: 100%; border: none; cursor: pointer; margin-top: 10px; }
-        .product button:hover { background: #d98d00; }
-
-        .view-more { text-align: center; margin-top: 15px; }
-        .view-more a { color: #f39c12; text-decoration: none; font-size: 16px; }
-        .view-more a:hover { text-decoration: underline; }
-
-        footer { background: #111; text-align: center; padding: 15px; margin-top: 20px; font-size: 14px; }
+        .price { font-size: 18px; color: #4CAF50; margin-bottom: 10px; }
+        .buy-btn { background: #f39c12; color: black; padding: 10px; width: 100%; border: none; cursor: pointer; font-size: 16px; }
+        .buy-btn:hover { background: #d98d00; }
+        
+        /* Footer */
+        footer { background: #1f1f1f; text-align: center; padding: 15px; margin-top: 20px; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <header>AlphaWear - Men's Fashion Store</header>
+    <header>AlphaWear - Men's Fashion</header>
     
     <nav>
         <a href="#">Home</a>
@@ -44,97 +44,35 @@
     </nav>
 
     <div class="container">
-        
-        <!-- T-Shirts Section -->
-        <div class="category">
-            <h2>T-Shirts</h2>
-            <div class="products">
+        <div class="product-section">
+            <h2>Featured Products</h2>
+            <div class="product-container">
                 <div class="product">
-                    <img src="https://source.unsplash.com/200x200/?tshirt,men" alt="T-Shirt">
-                    <h3>Premium T-Shirt</h3>
-                    <p>$20</p>
-                    <button>Add to Cart</button>
+                    <img src="https://source.unsplash.com/250x250/?tshirt,men" alt="Men's T-Shirt">
+                    <h3>Men's Premium T-Shirt</h3>
+                    <p class="price">$20</p>
+                    <button class="buy-btn">Add to Cart</button>
                 </div>
                 <div class="product">
-                    <img src="https://source.unsplash.com/200x200/?tshirt,casual" alt="Casual T-Shirt">
-                    <h3>Casual T-Shirt</h3>
-                    <p>$18</p>
-                    <button>Add to Cart</button>
+                    <img src="https://source.unsplash.com/250x250/?jacket,men" alt="Men's Jacket">
+                    <h3>Stylish Men's Jacket</h3>
+                    <p class="price">$50</p>
+                    <button class="buy-btn">Add to Cart</button>
                 </div>
-            </div>
-            <div class="view-more"><a href="#">View More</a></div>
-        </div>
-
-        <!-- Jackets Section -->
-        <div class="category">
-            <h2>Jackets</h2>
-            <div class="products">
                 <div class="product">
-                    <img src="https://source.unsplash.com/200x200/?jacket,men" alt="Jacket">
-                    <h3>Winter Jacket</h3>
-                    <p>$50</p>
-                    <button>Add to Cart</button>
+                    <img src="https://source.unsplash.com/250x250/?shirt,men" alt="Men's Shirt">
+                    <h3>Casual Men's Shirt</h3>
+                    <p class="price">$30</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://source.unsplash.com/250x250/?jeans,men" alt="Men's Jeans">
+                    <h3>Classic Denim Jeans</h3>
+                    <p class="price">$40</p>
+                    <button class="buy-btn">Add to Cart</button>
                 </div>
             </div>
-            <div class="view-more"><a href="#">View More</a></div>
         </div>
-
-        <!-- Jeans Section -->
-        <div class="category">
-            <h2>Jeans</h2>
-            <div class="products">
-                <div class="product">
-                    <img src="https://source.unsplash.com/200x200/?jeans,men" alt="Jeans">
-                    <h3>Blue Denim Jeans</h3>
-                    <p>$40</p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-            <div class="view-more"><a href="#">View More</a></div>
-        </div>
-
-        <!-- Shorts Section -->
-        <div class="category">
-            <h2>Shorts</h2>
-            <div class="products">
-                <div class="product">
-                    <img src="https://source.unsplash.com/200x200/?shorts,men" alt="Shorts">
-                    <h3>Summer Shorts</h3>
-                    <p>$25</p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-            <div class="view-more"><a href="#">View More</a></div>
-        </div>
-
-        <!-- Full Sleeve Shirts Section -->
-        <div class="category">
-            <h2>Full Sleeve Shirts</h2>
-            <div class="products">
-                <div class="product">
-                    <img src="https://source.unsplash.com/200x200/?shirt,formal" alt="Full Sleeve Shirt">
-                    <h3>Formal Shirt</h3>
-                    <p>$30</p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-            <div class="view-more"><a href="#">View More</a></div>
-        </div>
-
-        <!-- Ethnic Wear Section -->
-        <div class="category">
-            <h2>Ethnic Wear</h2>
-            <div class="products">
-                <div class="product">
-                    <img src="https://source.unsplash.com/200x200/?kurta,men" alt="Ethnic Wear">
-                    <h3>Men's Kurta</h3>
-                    <p>$35</p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-            <div class="view-more"><a href="#">View More</a></div>
-        </div>
-
     </div>
 
     <footer>&copy; 2025 AlphaWear | All Rights Reserved</footer>
