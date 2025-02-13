@@ -3,89 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Checkout - Complete your order securely.">
-    <meta name="keywords" content="checkout, order, payment, buy online, men's fashion">
-    <title>Checkout | Men's Fashion Store</title>
-
+    <title>Checkout - Men's Fashion Store</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #1a1a1a; color: white; }
-        .container { width: 90%; max-width: 600px; margin: auto; padding: 20px; }
-        h2 { text-align: center; margin-bottom: 20px; color: #f39c12; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select { width: 100%; padding: 10px; border-radius: 5px; border: none; }
-        input:focus, select:focus { outline: 2px solid #f39c12; }
-        .order-summary { background: #222; padding: 15px; border-radius: 8px; margin-top: 20px; }
-        .total { font-size: 18px; font-weight: bold; margin-top: 10px; text-align: center; }
-        .btn { width: 100%; padding: 12px; background: #f39c12; border: none; color: black; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 15px; border-radius: 5px; }
+        body { background: #1a1a1a; color: white; padding: 20px; }
+        .container { width: 90%; max-width: 500px; margin: auto; background: #222; padding: 20px; border-radius: 8px; }
+        h2 { text-align: center; color: #f39c12; }
+        label { display: block; margin-top: 10px; font-size: 14px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; border: none; border-radius: 4px; }
+        .btn { width: 100%; padding: 10px; background: #f39c12; border: none; color: black; cursor: pointer; font-weight: bold; margin-top: 15px; }
         .btn:hover { background: #d98d00; }
     </style>
-
-    <script>
-        function validateForm() {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let phone = document.getElementById("phone").value;
-            let address = document.getElementById("address").value;
-            let payment = document.getElementById("payment").value;
-
-            if (name === "" || email === "" || phone === "" || address === "" || payment === "") {
-                alert("Please fill all fields!");
-                return false;
-            }
-            alert("Order Placed Successfully!");
-            return true;
-        }
-    </script>
 </head>
 <body>
 
     <div class="container">
         <h2>Checkout</h2>
+        <form id="checkout-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
 
-        <form onsubmit="return validateForm()">
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" placeholder="Enter your full name">
-            </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
 
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" placeholder="Enter your email">
-            </div>
+            <label for="address">Shipping Address:</label>
+            <input type="text" id="address" required>
 
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" placeholder="Enter your phone number">
-            </div>
-
-            <div class="form-group">
-                <label for="address">Shipping Address:</label>
-                <input type="text" id="address" placeholder="Enter your full address">
-            </div>
-
-            <div class="form-group">
-                <label for="payment">Payment Method:</label>
-                <select id="payment">
-                    <option value="">Select Payment Method</option>
-                    <option value="cod">Cash on Delivery</option>
-                    <option value="credit">Credit Card</option>
-                    <option value="debit">Debit Card</option>
-                    <option value="crypto">Crypto Payment</option>
-                </select>
-            </div>
-
-            <div class="order-summary">
-                <h3>Order Summary</h3>
-                <p>Item: Men's T-Shirt</p>
-                <p>Quantity: 1</p>
-                <p class="total">Total: $20</p>
-            </div>
+            <label for="payment">Payment Method:</label>
+            <select id="payment" required>
+                <option value="cod">Cash on Delivery</option>
+            </select>
 
             <button type="submit" class="btn">Place Order</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById("checkout-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Order Placed Successfully! Payment will be collected on delivery.");
+            window.location.href = "index.html"; // Order ke baad homepage pe redirect
+        });
+    </script>
 
 </body>
 </html>
