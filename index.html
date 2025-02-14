@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Buy stylish and trendy men's fashion online. Best quality T-Shirts, Jackets, Shirts, and more at affordable prices.">
-    <title>Men's Fashion - Product Details</title>
+    <title>Men's Fashion Store</title>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
         body { background: #f8f8f8; color: black; }
 
-        /* ✅ Properly Fixed Geometric Background */
+        /* ✅ Fixed Geometric Background */
         body {
             background-color: #f8f8f8;
             background-image: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 25%, rgba(255, 76, 152, 0.1) 25%, rgba(255, 76, 152, 0.1) 50%, rgba(0, 212, 255, 0.1) 50%, rgba(0, 212, 255, 0.1) 75%, rgba(255, 76, 152, 0.1) 75%);
@@ -38,36 +38,12 @@
         button { background: #ff4c98; color: black; font-weight: bold; }
         button:hover { background: #d93d7b; }
 
-        .reviews { margin-top: 20px; }
-        .reviews h3 { border-bottom: 2px solid #ff4c98; padding-bottom: 5px; }
-
-        footer { background: #00d4ff; text-align: center; padding: 15px; margin-top: 20px; font-size: 14px; color: white; }
-
-        /* ✅ Restored Contact Form */
-        .contact-container {
-            background: white;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .contact-container h2 { text-align: center; color: #ff4c98; margin-bottom: 15px; }
-        .contact-form label { font-size: 16px; display: block; margin: 10px 0 5px; }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background: #00d4ff;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .contact-form button:hover { background: #ff4c98; }
+        /* ✅ Cart Section Styling */
+        .cart-container { background: white; padding: 20px; margin-top: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .cart-container h2 { text-align: center; color: #ff4c98; }
+        .cart-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd; }
+        .cart-item button { background: #ff4c98; border: none; padding: 5px 10px; cursor: pointer; }
+        .cart-item button:hover { background: #d93d7b; }
 
     </style>
 </head>
@@ -80,6 +56,7 @@
         <a href="#">Shop</a>
         <a href="#">Checkout</a>
         <a href="#">Contact</a>
+        <a href="#cart">Cart (<span id="cart-count">0</span>)</a> <!-- ✅ Cart ka count bhi show karega -->
     </nav>
 
     <div class="container">
@@ -107,40 +84,67 @@
                     <option>Blue</option>
                 </select>
 
-                <button onclick="alert('Added to cart')">Add to Cart</button>
+                <button onclick="addToCart()">Add to Cart</button>
             </div>
         </div>
 
-        <div class="reviews">
-            <h3>Customer Reviews</h3>
-            <div class="review-item">
-                <p><strong>John Doe:</strong> Amazing quality! Fits perfectly.</p>
+        <!-- ✅ Cart Section -->
+        <div class="cart-container" id="cart">
+            <h2>Your Shopping Cart</h2>
+            <div id="cart-items">
+                <p>No items in cart.</p>
             </div>
-            <div class="review-item">
-                <p><strong>Emily Smith:</strong> Love the fabric. Great purchase!</p>
-            </div>
-        </div>
-
-        <!-- ✅ Restored Contact Form -->
-        <div class="contact-container">
-            <h2>Contact Us</h2>
-            <form class="contact-form">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" rows="4" placeholder="Enter your message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
         </div>
 
     </div>
 
     <footer>&copy; 2025 Men's Fashion Store | All Rights Reserved</footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart() {
+            let size = document.getElementById("size").value;
+            let color = document.getElementById("color").value;
+            let product = {
+                name: "Men's Premium T-Shirt",
+                price: 20,
+                size: size,
+                color: color
+            };
+
+            cart.push(product);
+            updateCart();
+            alert('Item added to cart');
+        }
+
+        function updateCart() {
+            let cartContainer = document.getElementById("cart-items");
+            let cartCount = document.getElementById("cart-count");
+            cartContainer.innerHTML = "";
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>No items in cart.</p>";
+            } else {
+                cart.forEach((item, index) => {
+                    let cartItem = document.createElement("div");
+                    cartItem.classList.add("cart-item");
+                    cartItem.innerHTML = `
+                        <span>${item.name} - ${item.size} / ${item.color}</span>
+                        <span>$${item.price}</span>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+            cartCount.innerText = cart.length;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+    </script>
 
 </body>
 </html>
